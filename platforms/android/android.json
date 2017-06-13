@@ -11,6 +11,10 @@
                         {
                             "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Sensors\"><param name=\"android-package\" value=\"com.rhalff.plugin.Sensors\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -20,11 +24,24 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.rhalff.cordova.nukeMe"
+        },
+        "com.rhalff.sensors": {
+            "PACKAGE_NAME": "com.rhalff.cordova.nukeMe"
         }
     },
     "dependent_plugins": {},
-    "modules": [],
+    "modules": [
+        {
+            "id": "com.rhalff.sensors.sensors",
+            "file": "plugins/com.rhalff.sensors/www/sensors.js",
+            "pluginId": "com.rhalff.sensors",
+            "clobbers": [
+                "sensors"
+            ]
+        }
+    ],
     "plugin_metadata": {
-        "cordova-plugin-whitelist": "1.3.2"
+        "cordova-plugin-whitelist": "1.3.2",
+        "com.rhalff.sensors": "0.7.0"
     }
 }

@@ -1,0 +1,1 @@
+../../../../../../../cordova-plugin-sensors/src/android/Sensors.java

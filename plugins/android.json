@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.rhalff.cordova.nukeMe"
+        },
+        "com.rhalff.sensors": {
+            "PACKAGE_NAME": "com.rhalff.cordova.nukeMe"
         }
     },
     "dependent_plugins": {}
