@@ -14,16 +14,16 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-      "cordova-android": "^6.2.3",
-      "cordova-plugin-sensors": "file:../cordova-plugin-sensors",
-      "cordova-plugin-whitelist": "^1.3.2",
-      "com.rhalff.sensors": "../cordova-plugin-sensors",
-      "ovrui": "^1.1.0",
-      "react": "~15.4.1",
-      "react-native": "~0.42.0",
-      "three": "^0.80.1",
-      "react-vr": "^1.1.0",
-      "react-vr-web": "^1.1.0"
+    "cordova-android": "^6.2.3",
+    "cordova-plugin-sensors": "file:../cordova-plugin-sensors",
+    "cordova-plugin-whitelist": "^1.3.2",
+    "com.rhalff.sensors": "../cordova-plugin-sensors",
+    "ovrui": "^1.1.0",
+    "react": "~15.4.1",
+    "react-native": "~0.42.0",
+    "three": "^0.80.1",
+    "react-vr": "^1.1.0",
+    "react-vr-web": "^1.1.0"
   },
   "devDependencies": {
     "babel-jest": "^19.0.0",
@@ -34,13 +34,13 @@
     "xopen": "1.0.0"
   },
   "cordova": {
-      "plugins": {
-          "cordova-plugin-whitelist": {},
-          "com.rhalff.sensors": {}
-      },
-      "platforms": [
-          "android"
-      ]
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "com.rhalff.sensors": {}
+    },
+    "platforms": [
+      "android"
+    ]
   },
   "jest": {
     "preset": "react-vr"
