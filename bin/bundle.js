@@ -28,8 +28,9 @@ function buildScript(root, buildDir, input, output) {
         '--bundle-output',
         output,
         '--dev',
-        //'false',
-        'true',
+        // true gives function undefined for some reason
+        'false',
+        // 'true',
         '--assets-dest',
         buildDir,
       ],

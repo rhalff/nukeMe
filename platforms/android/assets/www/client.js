@@ -2,7 +2,9 @@ import {VRInstance} from 'react-vr-web';
 
 // Not used worker -> main
 function onVRMessage(event) {
+  // console.log('Or arrives here?', event);
   switch (event.data.type) {
+
   }
 }
 
@@ -24,12 +26,19 @@ function init(bundle, parent, options) {
 
   setInterval(() => {
     sensors.getState(sensors.ACCELEROMETER, (payload) => {
-      vr.rootView.context.worker.postMessage({
+      const { rootView: { context: { worker } } } = vr;
+
+      console.log('Sending but never arrives?');
+
+      // this is crazy, same, but doesn't work
+      worker.postMessage({
         type: 'accel',
         payload: payload
       });
     });
   }, 2000);
+
+  console.log('ReactVR initialized');
 
   return vr;
 }
