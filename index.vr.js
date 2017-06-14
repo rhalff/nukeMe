@@ -6,57 +6,12 @@ import {
   Text,
   View,
 } from 'react-vr';
+import { observable } from 'mobx';
+import { observer } from 'mobx-react/custom';
 
-export default class Aurealme extends React.Component {
-  state = {
-    accel: [0,0,0]
-  };
-
-  componentDidMount() {
-    sensors.enable(sensors.ACCELEROMETER);
-
-    setInterval(() => {
-      sensors.getState(sensors.ACCELEROMETER, (accel) => {
-        this.setState({ accel });
-      });
-    }, 100);
-
-    /*
-    var gn = new GyroNorm();
-
-    gn.init().then(() => {
-      gn.start((data) => {
-        console.log(data);
-        // Process:
-        // data.do.alpha	( deviceorientation event alpha value )
-        // data.do.beta		( deviceorientation event beta value )
-        // data.do.gamma	( deviceorientation event gamma value )
-        // data.do.absolute	( deviceorientation event absolute value )
-
-        // data.dm.x		( devicemotion event acceleration x value )
-        // data.dm.y		( devicemotion event acceleration y value )
-        // data.dm.z		( devicemotion event acceleration z value )
-
-        // data.dm.gx		( devicemotion event accelerationIncludingGravity x value )
-        // data.dm.gy		( devicemotion event accelerationIncludingGravity y value )
-        // data.dm.gz		( devicemotion event accelerationIncludingGravity z value )
-
-        // data.dm.alpha	( devicemotion event rotationRate alpha value )
-        // data.dm.beta		( devicemotion event rotationRate beta value )
-        // data.dm.gamma	( devicemotion event rotationRate gamma value )
-      });
-      this.setState({
-
-      });
-    }).catch(function(error){
-      // Catch if the DeviceOrientation or DeviceMotion is not supported by the browser or device
-      console.log(error);
-    });
-    */
-  }
-
+class Realme extends React.Component {
   render() {
-    const { accel } = this.state;
+    const { accel } = this.props.appState;
     const text = `${accel[0]}, ${accel[1]}, ${accel[2]}`;
 
     return (
@@ -79,6 +34,33 @@ export default class Aurealme extends React.Component {
       </View>
     );
   }
-};
+}
+
+const appState = observable({
+  accel: [0,0,0]
+});
+
+const Aurealme = observer(class Aurealme extends React.Component {
+  render() {
+    return (<Realme appState={appState} />);
+  }
+});
 
 AppRegistry.registerComponent('Aurealme', () => Aurealme);
+
+/*
+function onMainWindowMessage(event){
+  switch (event.data.type) {
+    case 'accel':
+      appState.accel = event.data;
+    break;
+    default:
+    return;
+  }
+}
+
+// send from the main window from cordova.
+window.addEventListener('message', onMainWindowMessage);
+*/
+
+export default Aurealme;
